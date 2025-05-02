@@ -4,11 +4,19 @@ const statesController = require('../../controllers/statesController');
 const data = {};
 data.states = require('../../model/states.json');
 
+router.param('state', (req, res, next, state) => {
+    const validStates = ['CA', 'NY', 'TX', 'FL']; // Example list
+    if (!validStates.includes(state.toUpperCase())) {
+        return res.status(400).json({ error: 'Invalid state abbreviation' });
+    }
+    next();
+});
+
 router.route('/')
-    .get((statesController.getAllStates));
+    .get(statesController.getAllStates);
 
 router.route('/:state')
-    .get((statesController.getState));
+    .get(statesController.getState);
 
 router.route('/:state/funfact')
     .get(statesController.getFunfact)
@@ -17,16 +25,18 @@ router.route('/:state/funfact')
     .delete(statesController.deleteFunfact);
 
 router.route('/:state/capital')
-    .get((statesController.getCapital));
+    .get(statesController.getCapital);
 
 router.route('/:state/nickname')
-    .get((statesController.getNickname));
+    .get(statesController.getNickname);
 
 router.route('/:state/population')
-    .get((statesController.getPopulation));
+    .get(statesController.getPopulation);
 
 router.route('/:state/admission')
-    .get((statesController.getAdmission));
+    .get(statesController.getAdmission);
+
+
 
 
 module.exports = router;
