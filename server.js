@@ -7,6 +7,8 @@ const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const credentials = require('./middleware/credentials');
+const rootRouter = require('./routes/root');
+const statesRouter = require('./routes/api/states');
 const mongoose = require('mongoose');
 const connectDB = require('./config/connectDB');
 const PORT = process.env.PORT || 3500;
@@ -49,7 +51,15 @@ app.all('*', (req, res) => {
     }
 });
 
+const events = require('events');
+events.EventEmitter.defaultMaxListeners = 15; // Increase the limit
+
 app.use(errorHandler);
+
+app.use((req, res, next) => {
+    console.log(`Incoming request: ${req.method} ${req.url}`);
+    next();
+});
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
