@@ -7,10 +7,14 @@ const verifyStates = require('../../middleware/verifyStates'); // Keep this if n
 
 // Middleware to validate the :state parameter
 router.param('state', (req, res, next, state) => {
-    const validStates = ['CA', 'NY', 'TX', 'FL']; // Example list
+    const validStates = data.states.map(state => state.code); // Extract state codes from states.json
+    console.log(`Validating state: ${state}`);
+    console.log(`Valid states: ${validStates}`);
     if (!validStates.includes(state.toUpperCase())) {
+        console.log('Invalid state abbreviation');
         return res.status(400).json({ message: 'Invalid state abbreviation parameter' });
     }
+    console.log('State is valid');
     next();
 });
 
