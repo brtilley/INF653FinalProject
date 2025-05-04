@@ -46,26 +46,32 @@ const getAllStates = async (req, res) => {
     }
 };
 
-const getFunfact = (req, res) => {
-    const stateCode = req.params.state.toUpperCase(); // Convert state code to uppercase
-    console.log(`Looking for fun fact for state: ${stateCode}`);
+const getFunfact = async (req, res) => {
+    try {
+        const stateCode = req.params.state.toUpperCase(); // Convert state code to uppercase
+        console.log(`Looking for fun fact for state: ${stateCode}`);
 
-    // Find the state in states.json
-    const state = statesJson.find(state => state.code === stateCode);
-    if (!state) {
-        return res.status(404).json({ message: 'State not found' });
+        // Find the state in MongoDB
+        const state = await State.findOne({ stateCode }).exec();
+        if (!state) {
+            console.log('State not found in MongoDB');
+            return res.status(404).json({ message: `No state matches code ${stateCode}.` });
+        }
+
+        // Check if the state has fun facts
+        if (!state.funfacts || state.funfacts.length === 0) {
+            return res.status(404).json({ message: `No Fun Facts found for ${state.state}` });
+        }
+
+        // Generate a random fun fact
+        const randomIndex = Math.floor(Math.random() * state.funfacts.length);
+        const randomFunfact = state.funfacts[randomIndex];
+
+        res.json({ funfact: randomFunfact });
+    } catch (error) {
+        console.error('Error in getFunfact:', error);
+        res.status(500).json({ message: 'Internal Server Error' });
     }
-
-    // Check if the state has fun facts
-    if (!state.funfact || state.funfact.length === 0) {
-        return res.status(404).json({ message: `No Fun Facts found for ${state.state}` });
-    }
-
-    // Generate a random fun fact
-    const randomIndex = Math.floor(Math.random() * state.funfact.length);
-    const randomFunfact = state.funfact[randomIndex];
-
-    res.json({ funfact: randomFunfact });
 };
 
 const getCapital = async (req, res) => {

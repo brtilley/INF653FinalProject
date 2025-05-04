@@ -27,7 +27,7 @@ const stateSchema = new Schema({
         type: Number
     },
     funfacts: {
-        type: [String] // Array of strings
+        type: [String]
     }
 });
 
