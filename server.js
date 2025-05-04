@@ -7,6 +7,7 @@ const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
 const credentials = require('./middleware/credentials');
+const verifyStates = require('./middleware/verifyStates');
 const rootRouter = require('./routes/root');
 const statesRouter = require('./routes/api/states');
 const mongoose = require('mongoose');

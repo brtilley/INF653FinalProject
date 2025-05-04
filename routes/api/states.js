@@ -3,15 +3,18 @@ const router = express.Router();
 const statesController = require('../../controllers/statesController');
 const data = {};
 data.states = require('../../model/states.json');
+const verifyStates = require('../../middleware/verifyStates'); // Keep this if needed elsewhere
 
+// Middleware to validate the :state parameter
 router.param('state', (req, res, next, state) => {
     const validStates = ['CA', 'NY', 'TX', 'FL']; // Example list
     if (!validStates.includes(state.toUpperCase())) {
-        return res.status(400).json({ error: 'Invalid state abbreviation' });
+        return res.status(400).json({ message: 'Invalid state abbreviation parameter' });
     }
     next();
 });
 
+// Routes
 router.route('/')
     .get(statesController.getAllStates);
 
@@ -35,8 +38,5 @@ router.route('/:state/population')
 
 router.route('/:state/admission')
     .get(statesController.getAdmission);
-
-
-
 
 module.exports = router;
