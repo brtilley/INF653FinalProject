@@ -192,3 +192,5 @@
 20250504	15:09:53	50484a93-ee53-4099-8de8-0cf775913941	GET	undefined	/states/KS/funfact
 20250504	15:10:54	bf39f2bb-6aa9-416c-895f-00aa55ea9d92	GET	undefined	/states/KS/funfact
 20250504	15:14:49	17fb8560-1c10-44af-9ff8-219cbf571664	GET	undefined	/states/KS/funfact
+20250504	15:47:53	d1b69a56-535f-42d1-a5ed-3d6380fc715b	GET	undefined	/states/ks/capital
+20250504	15:48:04	debf9a58-03ec-46e0-98dd-950f854a364c	GET	undefined	/states/ks/funfact

@@ -12,7 +12,11 @@ const rootRouter = require('./routes/root');
 const statesRouter = require('./routes/api/states');
 const mongoose = require('mongoose');
 const connectDB = require('./config/connectDB');
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
 
 // Connect to MongoDB
 connectDB();
