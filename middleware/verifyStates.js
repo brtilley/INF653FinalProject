@@ -2,7 +2,7 @@ const statesJson = require('../model/states.json');
 
 // Takes in user's request and returns true if
 // valid state code provided. Returns false otherwise.
-const isValidStateCode = (req) => {
+const verifyStates = (req) => {
     if (!req.params?.state) return res.status(400).json({ 'message': 'State code required.' });
     const stateCode = statesJson.map(state => state.code); // array of state codes
     const upcaseState = req.params.state.toUpperCase(); // user requested state
@@ -10,4 +10,4 @@ const isValidStateCode = (req) => {
 }
 
 
-module.exports = isValidStateCode;
+module.exports = verifyStates;

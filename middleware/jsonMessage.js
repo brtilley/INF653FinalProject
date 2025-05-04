@@ -1,8 +1,8 @@
-const isValidStateCode = require('./isValidStateCode');
+const verifyStates = require('./verifyStates');
 const statesJson = require('../model/states.json');
 
 const jsonMessage = (req, res, stateInfo='none') => {
-    if (isValidStateCode(req)) {
+    if (verifyStates(req)) {
         const jsonState = statesJson.find(s => s.code == req.params.state.toUpperCase());
         const message = { 'state': jsonState.state };
         switch (stateInfo) {
