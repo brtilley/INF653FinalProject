@@ -1,7 +1,7 @@
 {
   "scripts": {
     "start": "node server.js"
-},
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "date-fns": "^4.1.0",
@@ -30,8 +30,6 @@
   },
   "homepage": "https://github.com/brtilley/INF653FinalProject#readme",
   "description": "",
-
-
   "engines": {
     "node": "^16.0.0"
   }

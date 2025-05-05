@@ -1,3 +1,6 @@
+const DATABASE_URI = process.env.DATABASE_URI;
+
+
 require('dotenv').config();
 const express = require('express');
 const app = express();
