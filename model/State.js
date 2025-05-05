@@ -13,21 +13,6 @@ const stateSchema = new Schema({
     },
     funFacts: {
         type: [String]
-    },
-    nickname: {
-        type: String
-    },
-    population: {
-        type: Number
-    },
-    capital_city: {
-        type: String
-    },
-    admission_date: {
-        type: String
-    },
-    admission_number: {
-        type: Number
     }
 });
 
