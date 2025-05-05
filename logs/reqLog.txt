@@ -231,3 +231,15 @@
 20250504	18:22:09	e62a1910-3670-4f42-b96b-4c6d454c1d46	GET	undefined	/states/CA
 20250504	18:27:25	cdc9f5be-511c-429f-8de9-5ac1f7f021e5	GET	undefined	/states/CA/capital
 20250504	18:46:46	cae08ae0-ff56-4296-9a41-ee507b658fea	GET	undefined	/states/CA
+20250504	20:58:22	c90f1a93-344a-452d-b6cf-cfc2fdf0dba9	GET	undefined	/states/KS/funfact
+20250504	20:58:22	dd11575c-6b5c-445b-9f39-2b9a75e85ed4	GET	undefined	/favicon.ico
+20250504	20:59:13	926306fd-e798-42b8-8e8c-62a84648fb1d	GET	undefined	/states/KS/funFact
+20250504	20:59:24	183d831e-d8eb-4f3e-820c-71fd005b627a	GET	undefined	/states/KS/
+20250504	21:01:13	c286acc7-b590-46f1-8710-5fbe1c95e085	GET	undefined	/states/KS/capital
+20250504	21:17:40	948c9a62-810a-4ea2-b18e-c853e6ff00ab	GET	undefined	/states/KS/funFact
+20250504	21:17:42	f99f6943-658d-45e9-bf28-267c181ff516	GET	undefined	/states/KS/funFact
+20250504	21:17:42	9fe4dee7-a961-4324-8a9e-4bfa0090d451	GET	undefined	/states/KS/funFact
+20250504	21:17:43	c390440b-813c-4182-ae2b-ff9b2b987f41	GET	undefined	/states/KS/funFact
+20250504	21:19:29	0885f584-b6ea-4b76-949f-a4c2baa1db07	GET	undefined	/states/KS/funFact
+20250504	21:19:29	2248c728-dd4a-453a-b99d-4ce2b10b897e	GET	undefined	/states/KS/funFact
+20250504	21:21:56	86422787-6d08-4e3c-9f08-0df20ff6688e	GET	undefined	/states/KS/funFact
