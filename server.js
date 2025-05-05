@@ -75,3 +75,6 @@ mongoose.connect(process.env.DATABASE_URI, {
 }).catch(err => {
     console.error('Error connecting to MongoDB:', err);
 });
+
+console.log(`Server running on port ${PORT}`);
+console.log(`Database URI: ${process.env.DATABASE_URI}`);
