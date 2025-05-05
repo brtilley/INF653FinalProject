@@ -11,6 +11,9 @@ const stateSchema = new Schema({
         type: String,
         required: true
     },
+    funFacts: {
+        type: [String]
+    },
     nickname: {
         type: String
     },
@@ -25,10 +28,7 @@ const stateSchema = new Schema({
     },
     admission_number: {
         type: Number
-    },
-    funfacts: {
-        type: [String]
     }
 });
 
-module.exports = mongoose.model('State', stateSchema);
+module.exports = mongoose.model('state', stateSchema);

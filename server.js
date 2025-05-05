@@ -14,12 +14,12 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/connectDB');
 const PORT = process.env.PORT || 3000;
 
+// Connect to MongoDB
+connectDB();
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
-
-// Connect to MongoDB
-connectDB();
 
 // custom middleware logger
 app.use(logger);
@@ -66,11 +66,9 @@ app.use((req, res, next) => {
     next();
 });
 
-mongoose.connect(process.env.DATABASE_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('Connected to MongoDB');
-}).catch(err => {
-    console.error('Error connecting to MongoDB:', err);
+mongoose.connection.once('open', () => {
+    console.log('Connected to MongoDB database');
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`);
+    });
 });
