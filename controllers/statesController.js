@@ -41,10 +41,10 @@ const getFunfact = async (req, res) => {
         const state = await State.findOne({ stateCode }).exec();
         console.log('MongoDB query result:', state);
 
-        if (!state) {
-            console.log('State not found in MongoDB');
-            return res.status(404).json({ message: `No state matches code ${stateCode}.` });
-        }
+        // if (!state) {
+        //     console.log('State not found in MongoDB');
+        //     return res.status(404).json({ message: `No state matches code ${stateCode}.` });
+        // }
 
         // Check if the state has fun facts
         if (!state.funFacts || state.funFacts.length === 0) {
