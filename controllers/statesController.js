@@ -48,7 +48,7 @@ const getFunfact = async (req, res) => {
 
         // Check if the state has fun facts
         if (!state.funFacts || state.funFacts.length === 0) {
-            return res.status(404).json({ message: `No Fun Facts found for ${state.state}` });
+            return res.status(404).json({ message: `No Fun Facts found for ${state.state}.` });
         }
 
         // Generate a random fun fact
