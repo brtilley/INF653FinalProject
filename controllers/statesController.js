@@ -18,6 +18,8 @@ const getState = async (req, res) => {
 
         // Find the state's funFacts in MongoDB
         const mongoState = await State.findOne({ stateCode }).exec();
+        console.log('MongoDB query result:', mongoState);
+
         if (mongoState && mongoState.funFacts) {
             state.funFacts = mongoState.funFacts; // Add funFacts from MongoDB to the state object
         }
@@ -74,6 +76,7 @@ const getAllStates = async (req, res) => {
 
         // Fetch all states from MongoDB
         const mongoStates = await State.find().exec();
+        console.log('MongoDB query result:', mongoStates);
 
         // Merge funFacts from MongoDB into jsonStates
         jsonStates = jsonStates.map(state => {
