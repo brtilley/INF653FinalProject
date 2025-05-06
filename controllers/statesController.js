@@ -4,7 +4,7 @@ const jsonMessage = require('../middleware/jsonMessage');
 const res = require('express/lib/response');
 const getStateName = require('../middleware/getStateName');
 
-const getState = (req, res) => {
+const getState = async (req, res) => {
     try {
         const stateCode = req.params.state.toUpperCase(); // Convert state code to uppercase
         console.log(`Looking for state: ${stateCode}`);
@@ -16,8 +16,14 @@ const getState = (req, res) => {
             return res.status(404).json({ message: 'State not found' });
         }
 
+        // Find the state's funFacts in MongoDB
+        const mongoState = await State.findOne({ stateCode }).exec();
+        if (mongoState && mongoState.funFacts) {
+            state.funFacts = mongoState.funFacts; // Add funFacts from MongoDB to the state object
+        }
+
         console.log('State found:', state);
-        res.json(state); // Return the state data as JSON
+        res.json(state); // Return the merged state data
     } catch (error) {
         console.error('Error in getState:', error);
         res.status(500).json({ message: 'Internal Server Error' });
@@ -66,7 +72,19 @@ const getAllStates = async (req, res) => {
             jsonStates = jsonStates.filter(state => state.code === 'AK' || state.code === 'HI');
         }
 
-        // Return the filtered or full list of states
+        // Fetch all states from MongoDB
+        const mongoStates = await State.find().exec();
+
+        // Merge funFacts from MongoDB into jsonStates
+        jsonStates = jsonStates.map(state => {
+            const mongoState = mongoStates.find(mongo => mongo.stateCode === state.code);
+            if (mongoState && mongoState.funFacts) {
+                state.funFacts = mongoState.funFacts; // Add funFacts from MongoDB to the state object
+            }
+            return state;
+        });
+
+        // Return the merged list of states
         res.json(jsonStates);
     } catch (error) {
         console.error('Error in getAllStates:', error);

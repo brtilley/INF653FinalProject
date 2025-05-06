@@ -248,3 +248,15 @@
 20250504	21:26:27	786731c1-a3fc-44f4-89b7-40d3ab49d888	GET	undefined	/states/KS/funFact
 20250504	21:28:31	5bc54623-8a55-4b7d-ae79-f85e2c0c46f2	GET	undefined	/states/KS/funFact
 20250504	21:30:16	d771daa2-53b7-4fe8-8212-5c1936cb2beb	GET	undefined	/states/KS/funFact
+20250505	20:00:22	23eb09e0-919f-4058-a183-a720fd360fc1	GET	undefined	/states/KS/funFact
+20250505	20:00:25	9b9f9a3b-184a-4ab8-b0e2-9e1800cd8e37	GET	undefined	/states/KS/funFact
+20250505	20:00:26	16c7ad90-d294-4a87-820d-432662ea9890	GET	undefined	/states/KS/funFact
+20250505	20:00:33	863c6f4f-130c-437b-bd50-9e7906d434b2	GET	undefined	/states/KS/
+20250505	20:00:46	ecd116c7-9a49-4b9f-910a-a03e68ccfff3	GET	undefined	/states/MO/
+20250505	20:00:52	e4af9d4d-ebd5-43b2-9170-c8776583b06f	GET	undefined	/states/MO/funfacts
+20250505	20:01:07	8d774bb2-a7a5-4d29-9e12-e4fd64fd1920	GET	undefined	/states/
+20250505	20:03:56	3b0a8033-25f1-4e1a-b0fa-b32cb776c7d5	GET	undefined	/states/
+20250505	20:04:03	d967777f-1d3b-4da5-aa8c-15a19eb11fe8	GET	undefined	/states/KS/
+20250505	20:04:35	23ab4999-04b7-4cf3-88ff-46523444d8b0	GET	undefined	/states/KS/
+20250505	20:05:42	c7898ffd-0379-413f-b641-ba202ffc69eb	GET	undefined	/states/KS/
+20250505	20:05:50	74622fca-7c39-40d9-b75b-7f3abc3216e8	GET	undefined	/states/
