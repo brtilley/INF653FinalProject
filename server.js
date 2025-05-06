@@ -69,15 +69,5 @@ app.use((req, res, next) => {
     next();
 });
 
-
-mongoose.connect(process.env.DATABASE_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('Connected to MongoDB');
-}).catch(err => {
-    console.error('Error connecting to MongoDB:', err);
-});
-
 console.log(`Server running on port ${PORT}`);
 console.log(`Database URI: ${process.env.DATABASE_URI}`);
