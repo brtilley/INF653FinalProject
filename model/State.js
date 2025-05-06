@@ -5,4 +5,5 @@ const stateSchema = new mongoose.Schema({
     funFacts: { type: [String] }
 }, { collection: 'states' }); // Explicitly set the collection name
 
+
 module.exports = mongoose.model('State', stateSchema);
