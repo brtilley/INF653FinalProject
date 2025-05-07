@@ -41,15 +41,17 @@ const getFunfact = async (req, res) => {
         const state = await State.findOne({ stateCode }).exec();
         console.log('MongoDB query result:', state);
 
-        if (!state) {
-            console.log('State not found in MongoDB');
-            return res.status(404).json({ message: `No state matches code ${stateCode}.` });
-        }
-
         // Check if the state has fun facts
         if (!state.funFacts || state.funFacts.length === 0) {
             return res.status(404).json({ message: `No Fun Facts found for ${state.state}.` });
         }
+
+        if (!state) {
+            console.log('State not found in MongoDB');
+            return res.status(404).json({ message: `No Fun Facts found for ${stateCode}.` });
+        }
+
+        
 
         // Generate a random fun fact
         const randomIndex = Math.floor(Math.random() * state.funFacts.length);
@@ -126,7 +128,7 @@ const createNewFunfacts = (req, res) => {
         // Find the state in states.json
         const state = statesJson.find(state => state.code === stateCode);
         if (!state) {
-            return res.status(404).json({ message: `No state matches code ${stateCode}.` });
+            return res.status(404).json({ message: `No Fun Facts found for ${stateCode}.` });
         }
 
         // Validate request body
@@ -170,7 +172,7 @@ const updateFunfact = async (req, res) => {
         const state = await State.findOne({ stateCode }).exec();
         if (!state) {
             console.log('State not found in MongoDB');
-            return res.status(404).json({ message: `No state matches code ${stateCode}.` });
+            return res.status(404).json({ message: `No Fun Facts found for ${stateCode}.` });
         }
 
         // Validate request body
@@ -219,7 +221,7 @@ const deleteFunfact = (req, res) => {
         const state = statesJson.find(state => state.code === stateCode);
         if (!state) {
             console.log('State not found in states.json');
-            return res.status(404).json({ message: `No Fun Facts found for ${stateName}.` });
+            return res.status(404).json({ message: `No Fun Facts found for ${stateCode}.` });
         }
 
         // Validate index in request body
@@ -229,7 +231,7 @@ const deleteFunfact = (req, res) => {
 
         const stateName = state.state;
         if (!state.funfact || state.funfact.length < 1) {
-            return res.status(400).json({ message: `No Fun Facts found for ${stateName}.` });
+            return res.status(400).json({ message: `No Fun Facts found for ${stateName}` });
         }
 
         if (req.body.index < 1 || req.body.index > state.funfact.length) {
