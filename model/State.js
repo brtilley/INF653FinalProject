@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const stateSchema = new mongoose.Schema({
     stateCode: { type: String, required: true, unique: true },
-    funFacts: { type: [String] }
+    state: { type: String, required: true },
+    funfacts: { type: [String] }
 }, { collection: 'states' }); // Explicitly set the collection name
 
 module.exports = mongoose.model('State', stateSchema);
